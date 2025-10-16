@@ -1,0 +1,205 @@
+{
+  "name": "omniscript-vscode",
+  "displayName": "OmniScript Format",
+  "description": "Syntax highlighting, IntelliSense, and live preview for OSF (.osf) files",
+  "version": "0.1.0",
+  "publisher": "OmniScriptOSF",
+  "icon": "media/icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Linters",
+    "Snippets"
+  ],
+  "keywords": [
+    "omniscript",
+    "osf",
+    "document",
+    "markdown",
+    "presentation",
+    "spreadsheet",
+    "llm",
+    "ai"
+  ],
+  "activationEvents": [
+    "onLanguage:osf"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "osf",
+        "aliases": [
+          "OmniScript",
+          "osf"
+        ],
+        "extensions": [
+          ".osf"
+        ],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./media/icon.png",
+          "dark": "./media/icon.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "osf",
+        "scopeName": "source.osf",
+        "path": "./syntaxes/osf.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "osf.parse",
+        "title": "OSF: Parse Document",
+        "category": "OmniScript"
+      },
+      {
+        "command": "osf.preview",
+        "title": "OSF: Open Preview",
+        "category": "OmniScript",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "osf.exportPDF",
+        "title": "OSF: Export to PDF",
+        "category": "OmniScript"
+      },
+      {
+        "command": "osf.exportDOCX",
+        "title": "OSF: Export to DOCX",
+        "category": "OmniScript"
+      },
+      {
+        "command": "osf.exportPPTX",
+        "title": "OSF: Export to PPTX",
+        "category": "OmniScript"
+      },
+      {
+        "command": "osf.exportXLSX",
+        "title": "OSF: Export to XLSX",
+        "category": "OmniScript"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "when": "resourceLangId == osf",
+          "command": "osf.preview",
+          "group": "navigation"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "osf.parse",
+          "when": "resourceLangId == osf"
+        },
+        {
+          "command": "osf.preview",
+          "when": "resourceLangId == osf"
+        },
+        {
+          "command": "osf.exportPDF",
+          "when": "resourceLangId == osf"
+        },
+        {
+          "command": "osf.exportDOCX",
+          "when": "resourceLangId == osf"
+        },
+        {
+          "command": "osf.exportPPTX",
+          "when": "resourceLangId == osf"
+        },
+        {
+          "command": "osf.exportXLSX",
+          "when": "resourceLangId == osf"
+        }
+      ]
+    },
+    "snippets": [
+      {
+        "language": "osf",
+        "path": "./snippets/osf.json"
+      }
+    ],
+    "configuration": {
+      "title": "OmniScript",
+      "properties": {
+        "osf.linting.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable real-time syntax checking and error diagnostics"
+        },
+        "osf.preview.theme": {
+          "type": "string",
+          "default": "default",
+          "enum": [
+            "default",
+            "minimal",
+            "corporate",
+            "academic",
+            "creative",
+            "technical",
+            "retro",
+            "modern",
+            "elegant",
+            "bold"
+          ],
+          "description": "Theme to use for preview and exports"
+        },
+        "osf.preview.autoRefresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically refresh preview on document changes"
+        },
+        "osf.completion.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable auto-completion for @blocks and properties"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "package": "vsce package",
+    "publish": "vsce publish"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0",
+    "@types/node": "^22.15.31",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.40.0",
+    "typescript": "^5.8.3",
+    "@vscode/test-electron": "^2.3.0",
+    "@vscode/vsce": "^2.19.0"
+  },
+  "dependencies": {
+    "omniscript-parser": "^0.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/OmniScriptOSF/omniscript-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OmniScriptOSF/omniscript-vscode/issues"
+  },
+  "homepage": "https://omniscriptosf.github.io",
+  "author": {
+    "name": "Alphin Tom",
+    "email": "alpha912@github.com",
+    "url": "https://github.com/alpha912"
+  },
+  "license": "MIT"
+}

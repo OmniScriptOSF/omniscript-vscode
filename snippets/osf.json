@@ -1,0 +1,237 @@
+{
+  "Meta Block": {
+    "prefix": "meta",
+    "body": [
+      "@meta {",
+      "  title: \"${1:Document Title}\";",
+      "  author: \"${2:Author Name}\";",
+      "  date: \"${3:2025-10-15}\";",
+      "  version: \"${4:1.0}\";",
+      "  theme: ${5|default,minimal,corporate,academic,creative,technical,retro,modern,elegant,bold|};",
+      "}"
+    ],
+    "description": "Create a metadata block for document information"
+  },
+  "Doc Block": {
+    "prefix": "doc",
+    "body": [
+      "@doc {",
+      "  # ${1:Heading}",
+      "  ",
+      "  ${2:Document content goes here...}",
+      "  ",
+      "  ## ${3:Subheading}",
+      "  ",
+      "  ${0:More content...}",
+      "}"
+    ],
+    "description": "Create a document block with markdown content"
+  },
+  "Slide Block - Title Only": {
+    "prefix": "slide-title",
+    "body": [
+      "@slide {",
+      "  title: \"${1:Slide Title}\";",
+      "  layout: TitleOnly;",
+      "}"
+    ],
+    "description": "Create a title-only slide"
+  },
+  "Slide Block - Title and Content": {
+    "prefix": "slide-content",
+    "body": [
+      "@slide {",
+      "  title: \"${1:Slide Title}\";",
+      "  layout: TitleAndContent;",
+      "  ",
+      "  ${2:Slide content...}",
+      "  ",
+      "  - ${3:Bullet point 1}",
+      "  - ${4:Bullet point 2}",
+      "  - ${5:Bullet point 3}",
+      "}"
+    ],
+    "description": "Create a slide with title and content"
+  },
+  "Slide Block - Two Column": {
+    "prefix": "slide-two-col",
+    "body": [
+      "@slide {",
+      "  title: \"${1:Slide Title}\";",
+      "  layout: TwoColumn;",
+      "  ",
+      "  ## Left Column",
+      "  ${2:Left content...}",
+      "  ",
+      "  ## Right Column",
+      "  ${3:Right content...}",
+      "}"
+    ],
+    "description": "Create a two-column slide"
+  },
+  "Sheet Block": {
+    "prefix": "sheet",
+    "body": [
+      "@sheet {",
+      "  name: \"${1:Sheet1}\";",
+      "  cols: [${2:A, B, C}];",
+      "  ",
+      "  A1 = \"${3:Header 1}\";",
+      "  B1 = \"${4:Header 2}\";",
+      "  C1 = \"${5:Header 3}\";",
+      "  ",
+      "  A2 = ${6:100};",
+      "  B2 = ${7:200};",
+      "  C2 = =A2+B2;",
+      "}"
+    ],
+    "description": "Create a spreadsheet block with columns and data"
+  },
+  "Chart Block - Bar": {
+    "prefix": "chart-bar",
+    "body": [
+      "@chart {",
+      "  type: \"bar\";",
+      "  title: \"${1:Chart Title}\";",
+      "  data: [",
+      "    { label: \"${2:Series 1}\"; values: [${3:10, 20, 30, 40}]; }",
+      "  ];",
+      "  options: {",
+      "    xAxis: \"${4:X Axis Label}\";",
+      "    yAxis: \"${5:Y Axis Label}\";",
+      "    legend: true;",
+      "  };",
+      "}"
+    ],
+    "description": "Create a bar chart"
+  },
+  "Chart Block - Line": {
+    "prefix": "chart-line",
+    "body": [
+      "@chart {",
+      "  type: \"line\";",
+      "  title: \"${1:Chart Title}\";",
+      "  data: [",
+      "    { label: \"${2:Series 1}\"; values: [${3:10, 25, 35, 50}]; }",
+      "  ];",
+      "  options: {",
+      "    xAxis: \"${4:X Axis Label}\";",
+      "    yAxis: \"${5:Y Axis Label}\";",
+      "    legend: true;",
+      "  };",
+      "}"
+    ],
+    "description": "Create a line chart"
+  },
+  "Chart Block - Pie": {
+    "prefix": "chart-pie",
+    "body": [
+      "@chart {",
+      "  type: \"pie\";",
+      "  title: \"${1:Chart Title}\";",
+      "  data: [",
+      "    { label: \"${2:Category 1}\"; values: [${3:30}]; }",
+      "    { label: \"${4:Category 2}\"; values: [${5:45}]; }",
+      "    { label: \"${6:Category 3}\"; values: [${7:25}]; }",
+      "  ];",
+      "}"
+    ],
+    "description": "Create a pie chart"
+  },
+  "Diagram Block - Flowchart": {
+    "prefix": "diagram-flowchart",
+    "body": [
+      "@diagram {",
+      "  type: \"flowchart\";",
+      "  engine: \"mermaid\";",
+      "  code: \"",
+      "    graph TD",
+      "      A[${1:Start}] --> B{${2:Decision}}",
+      "      B -->|Yes| C[${3:Action 1}]",
+      "      B -->|No| D[${4:Action 2}]",
+      "      C --> E[${5:End}]",
+      "      D --> E",
+      "  \";",
+      "}"
+    ],
+    "description": "Create a flowchart diagram using Mermaid"
+  },
+  "Diagram Block - Sequence": {
+    "prefix": "diagram-sequence",
+    "body": [
+      "@diagram {",
+      "  type: \"sequence\";",
+      "  engine: \"mermaid\";",
+      "  code: \"",
+      "    sequenceDiagram",
+      "      ${1:Actor1}->>+${2:Actor2}: ${3:Message 1}",
+      "      ${2:Actor2}-->>-${1:Actor1}: ${4:Response 1}",
+      "  \";",
+      "}"
+    ],
+    "description": "Create a sequence diagram using Mermaid"
+  },
+  "Code Block": {
+    "prefix": "code",
+    "body": [
+      "@code {",
+      "  language: \"${1:typescript}\";",
+      "  caption: \"${2:Code Example}\";",
+      "  lineNumbers: true;",
+      "  code: \"",
+      "    ${3:// Your code here}",
+      "    ${0}",
+      "  \";",
+      "}"
+    ],
+    "description": "Create a code block with syntax highlighting"
+  },
+  "Heading Level 1": {
+    "prefix": "h1",
+    "body": ["# ${1:Heading}"],
+    "description": "Insert a level 1 heading"
+  },
+  "Heading Level 2": {
+    "prefix": "h2",
+    "body": ["## ${1:Heading}"],
+    "description": "Insert a level 2 heading"
+  },
+  "Heading Level 3": {
+    "prefix": "h3",
+    "body": ["### ${1:Heading}"],
+    "description": "Insert a level 3 heading"
+  },
+  "Bold Text": {
+    "prefix": "bold",
+    "body": ["**${1:bold text}**"],
+    "description": "Make text bold"
+  },
+  "Italic Text": {
+    "prefix": "italic",
+    "body": ["*${1:italic text}*"],
+    "description": "Make text italic"
+  },
+  "Inline Code": {
+    "prefix": "inline",
+    "body": ["`${1:code}`"],
+    "description": "Insert inline code"
+  },
+  "Bullet List": {
+    "prefix": "ul",
+    "body": [
+      "- ${1:Item 1}",
+      "- ${2:Item 2}",
+      "- ${3:Item 3}"
+    ],
+    "description": "Create an unordered list"
+  },
+  "Numbered List": {
+    "prefix": "ol",
+    "body": [
+      "1. ${1:Item 1}",
+      "2. ${2:Item 2}",
+      "3. ${3:Item 3}"
+    ],
+    "description": "Create an ordered list"
+  }
+}

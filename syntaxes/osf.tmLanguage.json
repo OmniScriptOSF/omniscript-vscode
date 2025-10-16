@@ -1,0 +1,188 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "OmniScript Format",
+  "scopeName": "source.osf",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#blocks" },
+    { "include": "#properties" },
+    { "include": "#markdown" },
+    { "include": "#formulas" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.osf",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.osf",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "blocks": {
+      "patterns": [
+        {
+          "name": "entity.name.tag.block.meta.osf",
+          "match": "@meta\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.doc.osf",
+          "match": "@doc\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.slide.osf",
+          "match": "@slide\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.sheet.osf",
+          "match": "@sheet\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.chart.osf",
+          "match": "@chart\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.diagram.osf",
+          "match": "@diagram\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.code.osf",
+          "match": "@code\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        }
+      ]
+    },
+    "properties": {
+      "patterns": [
+        {
+          "name": "meta.property.osf",
+          "match": "\\b(title|author|date|version|theme|layout|name|type|language|cols|rows|data|formula|caption|options|xAxis|yAxis|legend|colors|engine|code|lineNumbers|highlight)\\s*:",
+          "captures": {
+            "1": { "name": "support.type.property-name.osf" }
+          }
+        }
+      ]
+    },
+    "markdown": {
+      "patterns": [
+        {
+          "name": "markup.heading.osf",
+          "match": "^(#{1,6})\\s+(.+)$",
+          "captures": {
+            "1": { "name": "punctuation.definition.heading.osf" },
+            "2": { "name": "entity.name.section.osf" }
+          }
+        },
+        {
+          "name": "markup.bold.osf",
+          "match": "\\*\\*([^*]+)\\*\\*",
+          "captures": {
+            "0": { "name": "markup.bold.osf" }
+          }
+        },
+        {
+          "name": "markup.italic.osf",
+          "match": "\\*([^*]+)\\*",
+          "captures": {
+            "0": { "name": "markup.italic.osf" }
+          }
+        },
+        {
+          "name": "markup.inline.raw.osf",
+          "match": "`([^`]+)`",
+          "captures": {
+            "0": { "name": "markup.inline.raw.string.osf" }
+          }
+        },
+        {
+          "name": "markup.list.unnumbered.osf",
+          "match": "^\\s*[-*+]\\s+"
+        },
+        {
+          "name": "markup.list.numbered.osf",
+          "match": "^\\s*\\d+\\.\\s+"
+        }
+      ]
+    },
+    "formulas": {
+      "patterns": [
+        {
+          "name": "meta.formula.osf",
+          "match": "=\\s*([A-Z]+\\d+|SUM|AVERAGE|COUNT|MAX|MIN|IF|VLOOKUP|CONCATENATE)\\b",
+          "captures": {
+            "1": { "name": "support.function.osf" }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.osf",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.osf",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.osf",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.osf",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.osf",
+          "match": "\\b\\d+(\\.\\d+)?\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.osf",
+          "match": "\\b(true|false|null|TitleOnly|TitleAndContent|TwoColumn|ThreeColumn|bar|line|pie|scatter|area|flowchart|sequence|gantt|mindmap|mermaid|graphviz)\\b"
+        }
+      ]
+    }
+  }
+}
