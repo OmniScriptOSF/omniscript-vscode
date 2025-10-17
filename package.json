@@ -176,14 +176,15 @@
     "publish": "vsce publish"
   },
   "devDependencies": {
-    "@types/vscode": "^1.80.0",
     "@types/node": "^22.15.31",
+    "@types/vscode": "^1.80.0",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "eslint": "^8.40.0",
-    "typescript": "^5.8.3",
     "@vscode/test-electron": "^2.3.0",
-    "@vscode/vsce": "^2.19.0"
+    "@vscode/vsce": "^2.19.0",
+    "eslint": "^8.40.0",
+    "omniscript-converters": "^1.2.0",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
     "omniscript-parser": "^1.2.0"

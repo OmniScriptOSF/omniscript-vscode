@@ -76,6 +76,20 @@
           "captures": {
             "0": { "name": "keyword.control.osf" }
           }
+        },
+        {
+          "name": "entity.name.tag.block.table.osf",
+          "match": "@table\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
+        },
+        {
+          "name": "entity.name.tag.block.include.osf",
+          "match": "@include\\b",
+          "captures": {
+            "0": { "name": "keyword.control.osf" }
+          }
         }
       ]
     },
@@ -83,7 +97,7 @@
       "patterns": [
         {
           "name": "meta.property.osf",
-          "match": "\\b(title|author|date|version|theme|layout|name|type|language|cols|rows|data|formula|caption|options|xAxis|yAxis|legend|colors|engine|code|lineNumbers|highlight)\\s*:",
+          "match": "\\b(title|author|date|version|theme|layout|name|type|language|cols|rows|data|formula|caption|style|alignment|path|options|xAxis|yAxis|legend|colors|engine|code|lineNumbers|highlight)\\s*:",
           "captures": {
             "1": { "name": "support.type.property-name.osf" }
           }

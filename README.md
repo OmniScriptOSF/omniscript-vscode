@@ -165,9 +165,9 @@ Access via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
 - **VSCode**: Version 1.80.0 or higher
 - **Node.js**: Version 22+ (for export features)
-- **omniscript-cli v1.2.1+** (recommended): For full v1.2 features
+- **omniscript-cli v1.2.0+** (recommended): For full v1.2 features
   ```bash
-  npm install -g omniscript-cli@1.2.1
+  npm install -g omniscript-cli@1.2.0
   ```
 - **omniscript-converters v1.2.0+** (optional): For export functionality
   ```bash

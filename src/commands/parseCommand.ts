@@ -37,11 +37,16 @@ export async function parseCommand(): Promise<void> {
         outputChannel.appendLine('-'.repeat(80));
         outputChannel.appendLine('');
         
-        // Display document metadata
-        if (document.metadata) {
+        // Display document metadata from @meta blocks
+        const metaBlocks = document.blocks.filter(block => block.type === 'meta');
+        if (metaBlocks.length > 0) {
             outputChannel.appendLine('Metadata:');
-            Object.entries(document.metadata).forEach(([key, value]) => {
-                outputChannel.appendLine(`  ${key}: ${JSON.stringify(value)}`);
+            metaBlocks.forEach((block: any) => {
+                if (block.properties) {
+                    Object.entries(block.properties).forEach(([key, value]) => {
+                        outputChannel.appendLine(`  ${key}: ${JSON.stringify(value)}`);
+                    });
+                }
             });
             outputChannel.appendLine('');
         }

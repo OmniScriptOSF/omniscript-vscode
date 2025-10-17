@@ -233,5 +233,28 @@
       "3. ${3:Item 3}"
     ],
     "description": "Create an ordered list"
+  },
+  "Table Block": {
+    "prefix": "table",
+    "body": [
+      "@table {",
+      "  caption: \"${1:Table Caption}\";",
+      "  style: ${2|bordered,striped,minimal|};",
+      "  alignment: [${3:\"left\", \"center\", \"right\"}];",
+      "  ",
+      "  | ${4:Header 1} | ${5:Header 2} | ${6:Header 3} |",
+      "  | --- | --- | --- |",
+      "  | ${7:Cell 1} | ${8:Cell 2} | ${9:Cell 3} |",
+      "  | ${10:Cell 4} | ${11:Cell 5} | ${12:Cell 6} |",
+      "}"
+    ],
+    "description": "Create a table block with markdown syntax"
+  },
+  "Include Directive": {
+    "prefix": "include",
+    "body": [
+      "@include { path: \"${1:./section.osf}\"; }"
+    ],
+    "description": "Include another OSF file"
   }
 }
