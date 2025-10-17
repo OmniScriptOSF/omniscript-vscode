@@ -5,6 +5,26 @@ All notable changes to the OmniScript Format VSCode extension will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2025-10-17
+
+### Added
+- Support for OmniScript Format v1.2 features
+- @table block syntax highlighting and auto-completion
+- @include directive syntax highlighting and auto-completion
+- Table property completions (caption, style, alignment)
+- Include path auto-completion
+- Enhanced security validation for includes
+
+### Changed
+- Updated parser dependency to omniscript-parser@^1.2.0
+- Improved error messages for table validation
+- Enhanced diagnostics for include path validation
+
+### Fixed
+- Path traversal detection in @include directives
+- Table column count validation
+- Alignment value validation
+
 ## [0.1.0] - 2025-10-15
 
 ### Added

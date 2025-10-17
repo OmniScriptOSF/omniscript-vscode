@@ -2,7 +2,7 @@
   "name": "omniscript-vscode",
   "displayName": "OmniScript Format",
   "description": "Syntax highlighting, IntelliSense, and live preview for OSF (.osf) files",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "publisher": "OmniScriptOSF",
   "icon": "media/icon.png",
   "engines": {
@@ -186,7 +186,7 @@
     "@vscode/vsce": "^2.19.0"
   },
   "dependencies": {
-    "omniscript-parser": "^0.6.0"
+    "omniscript-parser": "^1.2.0"
   },
   "repository": {
     "type": "git",
