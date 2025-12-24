@@ -181,10 +181,13 @@
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vscode/test-electron": "^2.3.0",
-    "@vscode/vsce": "^2.19.0",
+    "@vscode/vsce": "^3.7.1",
     "eslint": "^8.40.0",
     "omniscript-converters": "^1.2.0",
     "typescript": "^5.9.3"
+  },
+  "overrides": {
+    "jws": "3.2.3"
   },
   "dependencies": {
     "omniscript-parser": "^1.2.0"
