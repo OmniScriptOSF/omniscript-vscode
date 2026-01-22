@@ -2,7 +2,9 @@
 
 **Syntax highlighting, IntelliSense, and live preview for OmniScript Format (OSF) files.**
 
-Transform plain-text `.osf` files into professional documents, presentations, and spreadsheets with full IDE support in Visual Studio Code.
+Transform plain-text `.osf` files into professional documents, presentations, and spreadsheets with rich IDE support in Visual Studio Code.
+
+> **Status:** In development. The extension is not published to the VS Code Marketplace yet.
 
 ---
 
@@ -60,16 +62,14 @@ Export to multiple formats with one click:
 
 ## 📦 Installation
 
-### From VSCode Marketplace
-1. Open VSCode
-2. Go to Extensions (Ctrl+Shift+X / Cmd+Shift+X)
-3. Search for "OmniScript Format"
-4. Click Install
+This extension is not published yet. To test locally:
 
-### From VSIX File
 ```bash
-code --install-extension omniscript-vscode-0.1.0.vsix
+pnpm install
+pnpm run compile
 ```
+
+Then launch the extension in VS Code using the extension host (F5).
 
 ---
 
