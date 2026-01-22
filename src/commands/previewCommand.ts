@@ -373,8 +373,12 @@ function convertMarkdownToHTML(text: string): string {
             continue;
         }
 
-        if (listItems.length > 0) flushList();
-        if (blockquoteLines.length > 0) flushBlockquote();
+        if (listItems.length > 0) {
+            flushList();
+        }
+        if (blockquoteLines.length > 0) {
+            flushBlockquote();
+        }
         paragraph.push(line);
     }
 
@@ -443,10 +447,18 @@ function renderRuns(runs: TextRun[]): string {
                 return `<img src="${url}" alt="${alt}" />`;
             }
             let content = escapeHtml(run.text || '');
-            if (run.bold) content = `<strong>${content}</strong>`;
-            if (run.italic) content = `<em>${content}</em>`;
-            if (run.underline) content = `<span class="underline">${content}</span>`;
-            if (run.strike) content = `<span class="strike">${content}</span>`;
+            if (run.bold) {
+                content = `<strong>${content}</strong>`;
+            }
+            if (run.italic) {
+                content = `<em>${content}</em>`;
+            }
+            if (run.underline) {
+                content = `<span class="underline">${content}</span>`;
+            }
+            if (run.strike) {
+                content = `<span class="strike">${content}</span>`;
+            }
             return content;
         })
         .join('');
@@ -455,9 +467,15 @@ function renderRuns(runs: TextRun[]): string {
 function runsToText(runs: TextRun[]): string {
     return runs
         .map((run) => {
-            if (typeof run === 'string') return run;
-            if (isLinkRun(run)) return run.text || '';
-            if (isImageRun(run)) return run.alt || '';
+            if (typeof run === 'string') {
+                return run;
+            }
+            if (isLinkRun(run)) {
+                return run.text || '';
+            }
+            if (isImageRun(run)) {
+                return run.alt || '';
+            }
             return run.text || '';
         })
         .join('');

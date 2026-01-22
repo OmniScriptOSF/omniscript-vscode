@@ -138,7 +138,9 @@ export class CompletionProvider implements vscode.CompletionItemProvider {
     private getValueCompletions(linePrefix: string): vscode.CompletionItem[] {
         // Detect property name before colon
         const propertyMatch = linePrefix.match(/(\w+)\s*:\s*$/);
-        if (!propertyMatch) return [];
+        if (!propertyMatch) {
+            return [];
+        }
         
         const propertyName = propertyMatch[1];
         
@@ -209,7 +211,9 @@ export class CompletionProvider implements vscode.CompletionItemProvider {
             openBraces += (line.match(/\{/g) || []).length;
             openBraces -= (line.match(/\}/g) || []).length;
             
-            if (openBraces < 0) break;
+            if (openBraces < 0) {
+                break;
+            }
         }
         
         return foundBlock && openBraces > 0;
@@ -224,7 +228,9 @@ export class CompletionProvider implements vscode.CompletionItemProvider {
             }
             
             // Stop if we hit a closing brace
-            if (line.match(/^\s*\}/)) break;
+            if (line.match(/^\s*\}/)) {
+                break;
+            }
         }
         return null;
     }

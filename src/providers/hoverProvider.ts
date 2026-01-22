@@ -13,22 +13,29 @@ export class HoverProvider implements vscode.HoverProvider {
     ): vscode.ProviderResult<vscode.Hover> {
         
         const wordRange = document.getWordRangeAtPosition(position, /@?\w+/);
-        if (!wordRange) return null;
+        if (!wordRange) {
+            return null;
+        }
         
         const word = document.getText(wordRange);
         
         // Block documentation
         const blockDocs = this.getBlockDocumentation(word);
-        if (blockDocs) return new vscode.Hover(blockDocs);
+        if (blockDocs) {
+            return new vscode.Hover(blockDocs);
+        }
         
         // Property documentation
         const propertyDocs = this.getPropertyDocumentation(word, document, position);
-        if (propertyDocs) return new vscode.Hover(propertyDocs);
+        if (propertyDocs) {
+            return new vscode.Hover(propertyDocs);
+        }
         
         return null;
     }
     
     private getBlockDocumentation(word: string): vscode.MarkdownString | null {
+        /* eslint-disable @typescript-eslint/naming-convention */
         const docs: { [key: string]: string } = {
             '@meta': `
 **@meta Block**
@@ -193,6 +200,7 @@ Displays code with syntax highlighting.
 \`\`\`
             `
         };
+        /* eslint-enable @typescript-eslint/naming-convention */
         
         const doc = docs[word];
         if (doc) {

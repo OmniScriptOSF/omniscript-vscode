@@ -123,14 +123,18 @@ export class DiagnosticsProvider {
                     j++;
                     continue;
                 }
-                if (inComment) continue;
+                if (inComment) {
+                    continue;
+                }
                 
                 // Handle strings
                 if (char === '"' && (j === 0 || line[j - 1] !== '\\')) {
                     inString = !inString;
                     continue;
                 }
-                if (inString) continue;
+                if (inString) {
+                    continue;
+                }
                 
                 // Track braces
                 if (char === '{') {

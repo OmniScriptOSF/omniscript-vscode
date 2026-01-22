@@ -56,8 +56,12 @@ export function validate(text: string): string[] {
     // Check for balanced braces
     let braceCount = 0;
     for (const char of text) {
-        if (char === '{') braceCount++;
-        if (char === '}') braceCount--;
+        if (char === '{') {
+            braceCount++;
+        }
+        if (char === '}') {
+            braceCount--;
+        }
         if (braceCount < 0) {
             errors.push('Unmatched closing brace');
             break;

@@ -63,30 +63,30 @@ export async function exportCommand(format: 'pdf' | 'docx' | 'pptx' | 'xlsx'): P
             // Import appropriate converter
             switch (format) {
                 case 'pdf': {
-                    const { PDFConverter } = await import('omniscript-converters');
-                    const converter = new PDFConverter();
-                    const output = await converter.convert(document, { theme });
+                    const { PDFConverter: pdfConverterClass } = await import('omniscript-converters');
+                    const pdfConverter = new pdfConverterClass();
+                    const output = await pdfConverter.convert(document, { theme });
                     result = output.buffer;
                     break;
                 }
                 case 'docx': {
-                    const { DOCXConverter } = await import('omniscript-converters');
-                    const converter = new DOCXConverter();
-                    const output = await converter.convert(document, { theme });
+                    const { DOCXConverter: docxConverterClass } = await import('omniscript-converters');
+                    const docxConverter = new docxConverterClass();
+                    const output = await docxConverter.convert(document, { theme });
                     result = output.buffer;
                     break;
                 }
                 case 'pptx': {
-                    const { PPTXConverter } = await import('omniscript-converters');
-                    const converter = new PPTXConverter();
-                    const output = await converter.convert(document, { theme });
+                    const { PPTXConverter: pptxConverterClass } = await import('omniscript-converters');
+                    const pptxConverter = new pptxConverterClass();
+                    const output = await pptxConverter.convert(document, { theme });
                     result = output.buffer;
                     break;
                 }
                 case 'xlsx': {
-                    const { XLSXConverter } = await import('omniscript-converters');
-                    const converter = new XLSXConverter();
-                    const output = await converter.convert(document, { theme });
+                    const { XLSXConverter: xlsxConverterClass } = await import('omniscript-converters');
+                    const xlsxConverter = new xlsxConverterClass();
+                    const output = await xlsxConverter.convert(document, { theme });
                     result = output.buffer;
                     break;
                 }
