@@ -155,7 +155,7 @@ Access via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 ## 📚 Documentation
 
 - **Official Website**: https://omniscriptosf.github.io
-- **Specification**: [OSF Spec v0.5](https://github.com/OmniScriptOSF/omniscript-core/blob/main/spec/v0.5/osf-spec.md)
+- **Specification**: [OSF Spec v1.2](https://github.com/OmniScriptOSF/omniscript-core/blob/main/spec/v1.2/README.md)
 - **Examples**: [Example Library](https://github.com/OmniScriptOSF/omniscript-examples)
 - **GitHub**: [omniscript-vscode](https://github.com/OmniScriptOSF/omniscript-vscode)
 
@@ -165,22 +165,22 @@ Access via Command Palette (`Ctrl+Shift+P` / `Cmd+Shift+P`):
 
 - **VSCode**: Version 1.80.0 or higher
 - **Node.js**: Version 22+ (for export features)
-- **omniscript-cli v1.2.0+** (recommended): For full v1.2 features
+- **omniscript-cli v1.3.0+** (recommended): For full v1.3 features
   ```bash
-  npm install -g omniscript-cli@1.2.0
+  npm install -g omniscript-cli@1.3.0
   ```
-- **omniscript-converters v1.2.0+** (optional): For export functionality
+- **omniscript-converters v1.3.0+** (optional): For export functionality
   ```bash
-  npm install -g omniscript-converters@1.2.0
+  npm install -g omniscript-converters@1.3.0
   ```
 
-## 🆕 v1.2 Features
+## 🆕 v1.3 Features
 
 The extension now supports:
-- ✅ **@table blocks** - Markdown-style tables with captions, styles, alignment
-- ✅ **@include directives** - Modular document composition
-- ✅ **Enhanced security** - Grade A+ validation and protection
-- ✅ **Better diagnostics** - More helpful error messages
+- ✅ **@table export parity** - Tables render across export formats
+- ✅ **Blockquote styling** - Consistent quotes in preview/exports
+- ✅ **Preview alignment** - Preview matches export behavior
+- ✅ **Include resolution** - Optional @include expansion in previews
 
 ---
 

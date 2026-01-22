@@ -157,6 +157,11 @@
           "default": true,
           "description": "Automatically refresh preview on document changes"
         },
+        "osf.preview.resolveIncludes": {
+          "type": "boolean",
+          "default": true,
+          "description": "Resolve @include directives when rendering previews"
+        },
         "osf.completion.enabled": {
           "type": "boolean",
           "default": true,
@@ -170,7 +175,7 @@
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
-    "lint": "eslint src --ext ts",
+    "lint": "eslint src",
     "test": "node ./out/test/runTest.js",
     "package": "vsce package",
     "publish": "vsce publish"
@@ -183,14 +188,14 @@
     "@vscode/test-electron": "^2.3.0",
     "@vscode/vsce": "^3.7.1",
     "eslint": "^8.40.0",
-    "omniscript-converters": "^1.2.0",
+    "omniscript-converters": "^1.3.0",
     "typescript": "^5.9.3"
   },
   "overrides": {
     "jws": "3.2.3"
   },
   "dependencies": {
-    "omniscript-parser": "^1.2.0"
+    "omniscript-parser": "^1.3.0"
   },
   "repository": {
     "type": "git",
